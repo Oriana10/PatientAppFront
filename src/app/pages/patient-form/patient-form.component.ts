@@ -17,6 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PatientFormComponent implements OnChanges {
   @Input() data: IPatient | null = null;
   @Output() onCloseModel = new EventEmitter();
+  @Output() addPatient = new EventEmitter();
 
   patientForm!: FormGroup;
 
@@ -32,7 +33,6 @@ export class PatientFormComponent implements OnChanges {
       documentNumber: new FormControl('', [Validators.required]),
       medicalHistoryNumber: new FormControl('', [Validators.required]),
       enabled: new FormControl('', [Validators.required])
-      //email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
@@ -48,13 +48,12 @@ export class PatientFormComponent implements OnChanges {
         typeOfDocument: this.data.typeOfDocument,
         documentNumber: this.data.documentNumber,
         medicalHistoryNumber: this.data.medicalHistoryNumber,
-        enabled: this.data.enabled,
-        //dob: formatDate(this.data.dob, 'yyyy-MM-dd', 'en'),
       });
     }
   }
 
   onSubmit() {
+    this.addPatient.emit(this.patientForm.value)
     if (this.patientForm.valid) {
       if (this.data) {
         this.patientService

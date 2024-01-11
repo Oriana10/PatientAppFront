@@ -7,7 +7,9 @@ import { ApiResponse, IPatient } from '../pages/shared/models/Patient';
   providedIn: 'root',
 })
 export class PatientService {
-  apiurl = 'http://localhost:4000/patient';
+  //apiurl = 'http://localhost:4000/patient';
+  private apiurl = 'http://localhost:5000/api/pacientes';
+
   constructor(private http: HttpClient) {}
 
   getAllPatients(): Observable<ApiResponse<IPatient[]>> {

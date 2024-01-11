@@ -1,7 +1,7 @@
 <div class="flex justify-between items-center mb-6">
   <h4 class="font-bold text-2xl"></h4>
   <button type="button" (click)="openModel()"
-    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2 ">Add
+    class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2 ">Add
     Patient</button>
 </div>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -70,5 +70,5 @@
 
 
 <app-model [isOpen]="isModelOpen" (closeModel)="closeModel()">
-  <app-patient-form (onCloseModel)="closeModel()" [data]="patient"></app-patient-form>
+  <app-patient-form (onCloseModel)="closeModel()" (addPatient)="addPatient($event)" [data]="patient"></app-patient-form>
 </app-model>

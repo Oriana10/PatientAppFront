@@ -55,6 +55,11 @@ export class PatientComponent implements OnInit {
     this.isModelOpen = true;
   }
 
+  addPatient(value: any){
+    console.log(value)
+    this.patients.push(value)
+  }
+
   closeModel() {
     this.isModelOpen = false;
     this.getAllPatients();

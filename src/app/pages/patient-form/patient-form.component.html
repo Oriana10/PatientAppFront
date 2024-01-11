@@ -26,7 +26,7 @@
 
   <div class="mb-5">
     <label for="documentNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Document Number</label>
-    <input type="date" id="documentNumber" class="form-control" placeholder="" formControlName="documentNumber">
+    <input type="text" id="documentNumber" class="form-control" placeholder="" formControlName="documentNumber">
     @if (patientForm.get('documentNumber')?.hasError('required') && patientForm.get('documentNumber')?.touched) {
     <div class="form-error">Document Number is required</div>
     }
@@ -34,14 +34,14 @@
 
   <div class="mb-5">
     <label for="medicalHistoryNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Medical History Number</label>
-    <input type="date" id="medicalHistoryNumber" class="form-control" placeholder="" formControlName="Medical History Number">
+    <input type="text" id="medicalHistoryNumber" class="form-control" placeholder="" formControlName="medicalHistoryNumber">
     @if (patientForm.get('medicalHistoryNumber')?.hasError('required') && patientForm.get('medicalHistoryNumber')?.touched) {
     <div class="form-error">Medical History Number is required</div>
     }
   </div>
 
   <button type="submit"
-    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+    class="text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
   <button type="button" (click)="onClose()"
     class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
 </form>
