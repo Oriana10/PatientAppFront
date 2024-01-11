@@ -54,7 +54,7 @@ export class PatientFormComponent implements OnChanges {
 
   onSubmit() {
     this.addPatient.emit(this.patientForm.value)
-    if (this.patientForm.valid) {
+        if (this.patientForm.valid) {
       if (this.data) {
         this.patientService
           .updatePatient(this.data._id as string, this.patientForm.value)
