@@ -29,8 +29,8 @@ export class PatientComponent implements OnInit {
 
   getAllPatients() {
     this.patientService.getAllPatients().subscribe(element => {
-      console.log(element)
-      this.patients = element
+      this.patients = JSON.parse(element);
+      console.log(JSON.parse(element))
     }) 
   }
 
