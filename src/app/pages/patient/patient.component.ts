@@ -28,13 +28,10 @@ export class PatientComponent implements OnInit {
   }
 
   getAllPatients() {
-    this.patientService.getAllPatients().subscribe({
-      next: (response) => {
-        if (response.data) {
-          this.patients = response.data;
-        }
-      },
-    });
+    this.patientService.getAllPatients().subscribe(element => {
+      console.log(element)
+      this.patients = element
+    }) 
   }
 
   loadPatient(patient: IPatient) {

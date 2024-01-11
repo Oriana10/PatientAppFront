@@ -15,8 +15,13 @@ export class PatientService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPatients(): Observable<ApiResponse<IPatient[]>> {
+  /* getAllPatients(): Observable<ApiResponse<IPatient[]>> {
     return this.http.get<ApiResponse<IPatient[]>>(`${this.apiurl}`);
+  } */
+
+   // one method is fine to return data from rest endpoint
+   getAllPatients(): Observable<any> {
+    return this.http.get(this.apiurl + '', { responseType: 'text'});
   }
 
   getPatient(id: string): Observable<ApiResponse<IPatient>> {

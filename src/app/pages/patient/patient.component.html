@@ -28,9 +28,6 @@
           Medical History Number
         </th>
         <th scope="col" class="px-6 py-3">
-          Enabled
-        </th>
-        <th scope="col" class="px-6 py-3">
           <span class="sr-only">Edit</span>
         </th>
       </tr>
@@ -52,9 +49,6 @@
         </td>
         <td class="px-6 py-4">
           {{item.medicalHistoryNumber}}
-        </td>
-        <td class="px-6 py-4">
-          {{item.enabled}}
         </td>
         <td class="px-6 py-4 text-right">
           <button type="button" (click)="item._id && loadPatient(item)"
