@@ -28,10 +28,10 @@ export class PatientComponent implements OnInit {
   }
 
   getAllPatients() {
-    this.patientService.getAllPatients().subscribe(element => {
-      this.patients = JSON.parse(element);
-      console.log(JSON.parse(element))
-    }) 
+    this.patientService.getAllPatients().subscribe(patients => {
+      console.log(patients)
+      this.patients = patients;
+    });
   }
 
   loadPatient(patient: IPatient) {
@@ -40,11 +40,9 @@ export class PatientComponent implements OnInit {
   }
 
   deletePatient(id: string) {
-    this.patientService.deletePatient(id).subscribe({
-      next: (response) => {
+    this.patientService.deletePatient(id).subscribe((response) => {
         this.toastr.success(response.message);
         this.getAllPatients();
-      },
     });
   }
 

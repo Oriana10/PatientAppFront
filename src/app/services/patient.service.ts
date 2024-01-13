@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { ApiResponse, IPatient } from '../pages/shared/models/Patient';
 import { environment } from '../../environments/environment';
 
@@ -9,19 +9,13 @@ import { environment } from '../../environments/environment';
 })
 
 export class PatientService {
-  // apiurl = 'http://localhost:4000/patient';
-  // private apiurl = 'http://localhost:5000/api/pacientes';
   private apiurl = environment["url_server"];
 
   constructor(private http: HttpClient) {}
 
-  /* getAllPatients(): Observable<ApiResponse<IPatient[]>> {
-    return this.http.get<ApiResponse<IPatient[]>>(`${this.apiurl}`);
-  } */
-
-   // one method is fine to return data from rest endpoint
-   getAllPatients(): Observable<any> {
-    return this.http.get(this.apiurl + '', { responseType: 'text'});
+  getAllPatients(): Observable<IPatient[]> {
+    return this.http.get(this.apiurl + '/pacientes', { responseType: 'json' })
+      .pipe(map(patients => patients as IPatient[]));
   }
 
   getPatient(id: string): Observable<ApiResponse<IPatient>> {

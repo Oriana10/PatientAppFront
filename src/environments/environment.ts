@@ -2,9 +2,9 @@ import { HttpHeaders } from "@angular/common/http";
 
 export const environment = {
   production: false,
-  url_server: "http://localhost:5000/api/pacientes", // "http://127.0.0.1:5000", // "http://localhost:8086/", 
-  url_demo_in_office: "", // "http://10.40.1.115:8086/",
-  url_demo_out_office: "http://localhost:5000/api/pacientes" // "http://127.0.0.1:5000" // "http://200.41.39.117:8086/"
+  url_server: "http://localhost:8003", // "http://10.40.1.115:8086/",
+  url_demo_in_office: "",
+  url_demo_out_office: "http://localhost:8003"
 };
 
 export let httpOptions = {
